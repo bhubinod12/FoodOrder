@@ -1,3 +1,6 @@
-.heading {
+.title {
+    color:'red';
+}
+.heading, #heading {
     color: red;
 }
