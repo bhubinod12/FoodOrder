@@ -68,5 +68,50 @@ h3 {
 .res-card:hover {
     border: 2px solid grey;
     cursor: pointer;
-
+}
+.filter {
+    /* border: 1px solid red; */
+    display: flex;
+    /* justify-content: space-between; */
+    margin: 5px;
+}
+.filter-btn{
+    padding: 5px;
+    border-radius: 4px;
+    background-color: blueviolet;
+    color: #fff;
+    border: 0 none;
+    font-size: 1em;
+    cursor: pointer;
+}
+.search {
+    padding: 5px;
+}
+.search-box {
+    margin-right: 5px;
+}
+.searchBtn {
+    cursor: pointer;
+}
+.loading {
+    text-align: center;
+    align-items: center;
+    flex: 1;
+}
+.shimmer-container {
+    flex-wrap: wrap;
+    display: flex;
+}
+.shimmer-cards {
+    margin: 20px;
+    width: 200px;
+    height: 400px;
+    background-color: lightgray;
+    border: 5px solid #ccc;
+}
+.loginBtn {
+    cursor: pointer;
+    padding: 0.3em;
+    font-size: 1em !important;
+    border: 1px solid grey;
 }

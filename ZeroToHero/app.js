@@ -115,90 +115,17 @@
     //         </>
     //     )        
     // }
-    // Buiild Header:
-    import logo from './logo.jpg'; // with import
-    import React, { useState, useEffect } from "react";
-    import ReactDOM from "react-dom/client";    
-    import { restaurants } from './fakeData_2';
-    
-    const cardStyle = {
-        backgroundColor: '#f0f0f0',
-        textAlign: 'center',
-        margin:10
-    }
-    const Header = () => {
-        return (
-            <div className="header">
-                <div className="logo">
-                    <img src={logo}
-                    />
-                </div>
-                <div className="nav-items">
-                    <ul>
-                        <li>Home</li>
-                        <li>About Us</li>
-                        <li>Contact Us</li>
-                        <li>Cart</li>
-                    </ul>
-                </div>
-            </div>
-        )
-    }
-    const RestaurantCard = (props) => {
-        const {cardData} = props;
-        return (
-            <>
-            {
-                cardData.map((item) => {
-                    // console.log(item.info.cloudinaryImageId);
-                    const cloudinaryImageId = item.info.cloudinaryImageId
-                    return (
-                        <div key={item.info.id} className='res-card' style={cardStyle}>
-                             {/* <img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/cloudinaryImageId'  */}
-                             <img src={
-                                'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/'+ 
-                                cloudinaryImageId 
-                             }
-                                alt='food-logo'
-                                width='100%'
-                            />
-                            <h1>{item.info.name}</h1>
-                            <h2>{item.info.cuisines.join(', ')}</h2>
-                            <h4>{item.info.areaName}</h4>
-                            <h4>{item.info.avgRating} stars</h4>
-                            <h4>{item.info.costForTwo}</h4>
-                            <h4>{item.info.sla.deliveryTime} minutes</h4>
 
-                        </div>
-                    )
-                })
-            }
-            </>
-        )
-    }
+    import ReactDOM from "react-dom/client";    
+    import { restaurants } from './src/util/fakeData_2';
+    import Header from './src/components/Header';
+    import Body from "./src/components/Body";
     
-    const Body = () => {
-        const cardData = restaurants;
-        // console.log(restaurants);
-        return (
-            <div className="bodyWrap">
-                <div className="search">
-                    <input 
-                    placeholder="Search"
-                    />
-                </div>
-                <div className="res-container">
-                    <RestaurantCard cardData = {cardData}/>
-                </div>
-            </div>
-        )
-    }
     const AppLayout = () => {
         return (
             <div className="app">
                 <Header />
                 <Body/>
-
             </div>
         )
     }
