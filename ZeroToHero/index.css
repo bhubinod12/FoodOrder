@@ -4,6 +4,7 @@ h1, h2,h3,h4,h5,h6 {
     padding: 0.1em;
     /* font-size: medium; */
     font-weight: normal;
+    text-decoration: none;
 }
 h1 {
     font-size: large;

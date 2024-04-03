@@ -9,6 +9,7 @@ import { CDN_URL } from '../util/constant';
 
 const RestaurantCard = (props) => {
     const {cardData} = props;
+    console.log(cardData[0].info);
     return (
         <>
         {

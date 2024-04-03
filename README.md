@@ -23,4 +23,34 @@ This is where we will build multiple feature with using JavaScript/react/reactNa
 
 
 
+# export
+-> There are two types of export/import
+-> export default component:
+-> import component from "path";
+
+Named Export/Import
+
+export const Component:
+import {Component} from "path";
+
+# React Hooks
+(Normal Js Utility functions)
+# useState() -> super powerfull react Hooks
+useEffect()
+-> whenever state variable update, it will re-render react components
+
+# useEffect Hooks
+useEffect will get called once Component render gets finish.
+
+# Diff algorithm, reconciliation, VOM
+
+# 2 types of Routing:
+-> Server side routing -> When make the request to the server side and get the HTML and display is called server side Routing.
+-> Client side routing:-> When We navigate each other between the page without server request is called as Client side Routing.
+
+
+
+
+
+
 

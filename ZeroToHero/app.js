@@ -116,20 +116,57 @@
     //     )        
     // }
 
-    import ReactDOM from "react-dom/client";    
-    import { restaurants } from './src/util/fakeData_2';
-    import Header from './src/components/Header';
-    import Body from "./src/components/Body";
+import ReactDOM from "react-dom/client";    
+import { restaurants } from './src/util/fakeData_2';
+import Header from './src/components/Header';
+import Body from "./src/components/Body";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import AboutUs from "./src/components/AboutUs";
+import ContactUs from "./src/components/ContactUs";
+import Card from "./src/components/Card";
+import NotFound from "./src/components/NotFound";
+import RestaurantMenu from "./src/components/RestaurantMenu";
     
     const AppLayout = () => {
         return (
             <div className="app">
                 <Header />
-                <Body/>
+                {/* <Body/> */}
+                <Outlet/>
             </div>
         )
     }
+    const appRouter = createBrowserRouter([
+        {
+            path: "/",
+            element: <AppLayout/>,
+            children: [
+                {
+                    path: '/',
+                    element: <Body/>
+                },
+                {
+                    path: "/about",
+                    element: <AboutUs/>
+                },
+                {
+                    path: "/contact-us",
+                    element: <ContactUs/>
+                },
+                {
+                    path: "/card",
+                    element: <Card/>
+                },
+                {
+                    path: "/restaurant/:resId",
+                    element: <RestaurantMenu/>
+                }
+            ],
+            errorElement: <NotFound/>
+            
+        },
+    ])
     const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<AppLayout/>)
+    root.render(<RouterProvider router={appRouter}/>)
 
     

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../assests/logo.jpg';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [userState, setUserState] = useState('Login');
@@ -8,7 +9,10 @@ const Header = () => {
     }
     useEffect(() => {
         console.log('useEffect is called!!!');
-    })
+        return () => {
+            console.log('Component got unmounted!!!');
+        }
+    },[userState])
     return (
         <div className="header">
             <div className="logo">
@@ -17,10 +21,18 @@ const Header = () => {
             </div>
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
+                    <li>
+                        <Link to= '/'>Home</Link>
+                    </li>
+                    <li>
+                        <Link to='/about'>About Us</Link>
+                    </li>
+                    <li>
+                        <Link to = '/contact-us'>Contact Us</Link>
+                    </li>
+                    <li>
+                        <Link to= '/card'>Cart</Link>
+                    </li>
                     <li className='loginBtn' onClick={handleCred}>{userState}</li>
                 </ul>
             </div>
