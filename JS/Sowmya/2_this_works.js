@@ -90,3 +90,79 @@
 //     }
 // }   
 // cap.sayHi();
+
+// ==04-04-24[With arrow function]==
+
+// let myFunction = () => {
+//     let a = 10;
+//     let b = 2;
+//     return a * b;
+// }
+// console.log(myFunction());
+
+// Type 1:
+// let cap = {
+//     name: 'Binod',
+//     sayHi: function() {
+//         console.log("53", this.name);
+//         const iAmInner = () => {
+//             console.log("55", this.name);
+//         }
+//         iAmInner();
+//     }
+// }   
+// cap.sayHi();
+
+// Type 2:
+// console.log(this);
+// let cap = {
+//     name: 'Binod',
+//     sayHi: () => {
+//         console.log("Hi from", this.name);
+//     }
+// }   
+// cap.sayHi();
+// let sayHiAdd = cap.sayHi;
+// sayHiAdd();
+
+// Type 3:
+// var firstName = "Binod";
+// console.log(this.firstName);
+// let cap = {
+//     firstName: "Steve",
+//     sayHi: () => {
+//         console.log("91", this.firstName);
+//         // arrow ->  does not have it's own this. I am going to cheat it from outside 
+//             const iAmInner = () => {
+//                 console.log("95", this.firstName);
+//             }
+//             iAmInner();
+//     }
+// }
+// cap.sayHi();
+
+// Type: 4
+
+// let cap = {
+//     firstName: "Steve",
+//     sayHi: function () {
+//         console.log("91", this.firstName);
+//         const subInner = () => {
+//             console.log("94", this.firstName);
+//             const iAmInner = () => {
+//                 console.log("95", this.firstName);
+//             }
+//             iAmInner();
+//         }
+//         subInner();
+//     }
+// }
+// cap.sayHi();
+
+
+
+
+
+
+
+
