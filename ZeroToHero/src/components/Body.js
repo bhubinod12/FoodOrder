@@ -1,3 +1,4 @@
+// Changing the project name from ZeroToHero to FoodOrder:
 import React, { useEffect, useState } from 'react'
 import RestaurantCard from './RestaurantCard';
 // import { restaurants } from '../util/fakeData_2'; Not using now taking from Swigy API using fetch(URL) method
