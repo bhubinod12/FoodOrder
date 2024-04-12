@@ -1,7 +1,6 @@
 import React from 'react'
 import User from './User'
 import UserClass from './UserClass'
-//HHH
 
 class AboutUs extends React.Component {
   constructor(props) {
