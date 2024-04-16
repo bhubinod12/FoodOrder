@@ -8,7 +8,7 @@
 
 // function restOperator (a,b, ...arr1) {
 //     console.log(a, b, arr1);
-//     // ...arr1 restoperator
+    // ...arr1 restoperator
 // }
 
 // restOperator(1,2,3,4,5,6);
@@ -49,25 +49,25 @@
 // }
     
 // function sayHi(args) {
-//     // console.log(args[0], args[1]);
+    // console.log(args[0], args[1]);
 //     console.log(`Hi from ${this.name} from ${args[0]} ${args[1]}`)
 // }
-// // sayHi.call(obj, 'Bangalore', 'Horamavu');
+// sayHi.call(obj, 'Bangalore', 'Horamavu');
 
-// //apply:
+//apply:
 // let address = ['Bangalore', 'Horamavu'];
-// // sayHi.apply(obj, address)
+// sayHi.apply(obj, address)
 
-// // bind:
+// bind:
 
 // let sayHiAdd = sayHi.bind(obj);
 // sayHiAdd(address);
 
 
-function add(...args) {
-    console.log(args);
-}
+// function add(...args) {
+//     console.log(args);
+// }
 
-add(1,2,3,4,5);
+// add(1,2,3,4,5);
 
 
