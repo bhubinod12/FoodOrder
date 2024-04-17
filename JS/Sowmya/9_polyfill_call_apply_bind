@@ -1,0 +1,165 @@
+// console.log('Hello');
+
+// let cap = {
+//     name: 'Binod',
+//     team: 'Cap',
+//     petersTeam: function(mem1, mem2) {
+//         // console.log(this);
+//         console.log(`Hey ${this.name} I am your neighborhood's 
+//         spiderman and i belong to ${this.team}'s team with members ${mem1} ${mem2}`);
+//     }
+// }
+// cap.name
+// cap.petersTeam()
+
+// let ironMan = {
+//     name: 'Tony',
+//     team: 'Iron Man'
+// }
+// cap.petersTeam.call(ironMan, 'Binod', 'Sowmya');
+
+// polyfill of call:
+// call, applly and bind these all are works on function:
+
+// let cap = {
+//     name: 'Binod',
+//     team: 'Cap',
+//     petersTeam: function(mem1, mem2) {
+//         // console.log(this);
+//         console.log(`Hey ${this.name} I am your neighborhood's 
+//         spiderman and i belong to ${this.team}'s team with members ${mem1} ${mem2}`);
+//     }
+// }
+
+// let ironMan = {
+//     name: 'Tony',
+//     team: 'Iron Man'
+// }
+
+// let obj = {}
+// obj.a = 10;
+// obj.b = 100
+// console.log(obj);
+
+// function Test () {
+
+// }
+// Test.myCall();
+
+// Function.prototype.myCall = function (requiredObj, ...args) {
+//     let requiredFn = this;
+//     requiredObj.requiredFn = requiredFn;
+//     requiredObj.requiredFn(...args);
+// }
+
+// cap.petersTeam.myCall(ironMan, 'Binod', 'Kumar');
+
+// polyFill for apply:
+
+// let cap = {
+//     name: 'Binod',
+//     team: 'Cap',
+//     petersTeam: function(mem1, mem2) {
+//         console.log(this);
+//         console.log(`Hey ${this.name} I am your neighborhood's 
+//         spiderman and i belong to ${this.team}'s team with members ${mem1} ${mem2}`);
+//     }
+// }
+
+// let ironMan = {
+//     name: 'Tony',
+//     team: 'Iron Man'
+// }
+
+// Function.prototype.myApply = function (requiredObj, args) {
+//     let requiredFn = this;
+//     requiredObj.requiredFn = requiredFn;
+//     requiredObj.requiredFn(...args);
+// }
+
+// cap.petersTeam.myApply(ironMan, ['Binod', 'Kumar']);
+
+// let cap = {
+//     name: 'Binod',
+//     team: 'Cap',
+//     petersTeam: function(mem1, mem2) {
+//         // console.log(this);
+//         console.log(`Hey ${this.name} I am your neighborhood's 
+//         spiderman and i belong to ${this.team}'s team with members ${mem1} ${mem2}`);
+//     }
+// }
+
+// let ironMan = {
+//     name: 'Tony',
+//     team: 'Iron Man'
+// }
+
+// let boundFn = cap.petersTeam.bind(ironMan);
+// boundFn('Binod', 'Sowmya');
+
+// Function.prototype.myBind = function (requredObj) {
+//     let requireFn = this;
+//     return function (...args) {
+//         requireFn.call(requredObj, ...args)
+//     }
+// }
+// let boundFn = cap.petersTeam.myBind(ironMan);
+// console.log(boundFn);
+// boundFn('Binod', 'Kumar');
+// boundFn('Binod', 'Sowmya');
+
+// Function.prototype.myBind = function (requredObj) {
+//     let requireFn = this;
+//     return function (args) {
+//         requireFn.apply(requredObj, args)
+//     }
+// }
+// let boundFn = cap.petersTeam.myBind(ironMan);
+// console.log(boundFn);
+
+// boundFn(['Binod', 'Kumar']);
+// boundFn(['Binod', 'Sowmya']);
+
+
+// Prime number: How to check a number is prime or not?
+// 2, 3, 5, 7
+// Number which is having only two factor 1 and number itself
+// Prime number
+// 2 = 1*2
+// 3 = 1*3
+
+// composite number
+// 4 = 1*4
+// 4 = 2*2
+// 4 = 4*1
+
+// 4 -> 1, 2,3 4
+// 1000
+
+function isPrime (num) {
+    let count = 0;
+    for (let i = 1; i <= num; i++) {
+        if (num % i == 0) {
+            count++;
+        }
+    }
+    if (count > 2) {
+        console.log('Number is not a prime');
+    } else {
+        console.log('Number is prime');
+    }
+}
+
+isPrime(5);
+isPrime(10);
+
+
+
+
+
+
+
+
+
+
+
