@@ -2,36 +2,36 @@ import React, { useEffect, useState } from 'react'
 import Shimmer from './Shimmer';
 import { useParams } from 'react-router-dom';
 import { MENU_API } from '../util/constant';
+import useRestaurantMenu from '../util/useRestaurantMenu';
 
 const RestaurantMenu = () => {
-    const [restInfo, setRestInfo] = useState(null);
+    // const [restInfo, setRestInfo] = useState(null);
     const {resId} = useParams();
-    // console.log(resId);
-    useEffect(() => {
-        fetchMenu();
-    }, []);
-    const fetchMenu = async () => {
-        // console.log('Hiii');
-        const data = await fetch( MENU_API + resId);
-        // console
-        const jsonData = await data.json();
-        // console.log(jsonData.data);
-        // setRestInfo(jsonData.data.cards[2].card.card.info);
-        // setItemCards(jsonData.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards);
-        setRestInfo(jsonData.data);
-        // console.log(restInfo);
-    }
-    if (restInfo === null) return (<Shimmer />);
+    const restInfo = useRestaurantMenu(resId); // Custom Hooks-> Moved below useEffect and fetchMenu code into the util/useRestaurantMenu.js
+
+    // useEffect(() => {
+    //     fetchMenu();
+    // }, []);
+
+    // const fetchMenu = async () => {
+    //     const data = await fetch( MENU_API + resId);
+    //     const jsonData = await data.json();
+    //     setRestInfo(jsonData.data);
+    // }
+
     // console.log(restInfo);
+    // if (restInfo === null) return (<Shimmer />);
+    if (restInfo === null) return (<h1>Loading...</h1>);
+
     const {name, cuisines, costForTwoMessage} = restInfo?.cards[2]?.card?.card?.info;
     const { itemCards } = restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-    console.log(itemCards);
+    console.log(restInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
     if (!itemCards) {
         console.log('No data present!!!');
         return <h1>Data not found!!!</h1>
         return;
     }
-    // if (itemCards.length === 0) return;
+
   return (
     <div className='menu'>
          <h1>{name}</h1>

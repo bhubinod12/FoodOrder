@@ -120,20 +120,44 @@ import ReactDOM from "react-dom/client";
 import { restaurants } from './src/util/fakeData_2';
 import Header from './src/components/Header';
 import Body from "./src/components/Body";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet, useSearchParams } from "react-router-dom";
 import AboutUs from "./src/components/AboutUs";
 import ContactUs from "./src/components/ContactUs";
 import Card from "./src/components/Card";
 import NotFound from "./src/components/NotFound";
 import RestaurantMenu from "./src/components/RestaurantMenu";
+// import Grocery from "./src/components/Grocery";
+import { lazy, Suspense, useEffect, useState } from "react";
+import UserContext from "./src/util/UserContext";
+    
+// Chunking
+//Code spilitting
+//Dynamic bundling
+//lazy loading
+//onDemand loading
+//dynamic import etc
+
+    const Grocery = lazy(() =>import("./src/components/Grocery"));
+    // const AboutUs = lazy(() =>import("./src/components/AboutUs"));
+
     
     const AppLayout = () => {
+        const [userName, setUserName] = useState();
+
+        useEffect(() => {
+            const data = {
+                name: 'Binod'
+            }
+            setUserName(data.name);
+        }, []);
         return (
-            <div className="app">
-                <Header />
-                {/* <Body/> */}
-                <Outlet/>
-            </div>
+            <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
+                <div className="app">
+                    <Header />
+                    {/* <Body/> */}
+                    <Outlet/>
+                </div>
+            </UserContext.Provider>
         )
     }
     const appRouter = createBrowserRouter([
@@ -147,11 +171,20 @@ import RestaurantMenu from "./src/components/RestaurantMenu";
                 },
                 {
                     path: "/about",
+                    // element: <Suspense fallback = {<h2>Loading...</h2>}>
+                    //     <AboutUs/>
+                    //     </Suspense>
                     element: <AboutUs/>
                 },
                 {
                     path: "/contact-us",
                     element: <ContactUs/>
+                },
+                {
+                    path: "/grocery",
+                    element: <Suspense fallback = {<h2>Loading...</h2>}>
+                        <Grocery/>
+                        </Suspense>
                 },
                 {
                     path: "/card",
