@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Pagination from "./Pagination";
 
 // https://api.themoviedb.org/3/trending/movie/day?language=en-US
 function Movies() {
   const [movies, setMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const onNext = () => {
+    setCurrentPage(currentPage + 1);
+  }
+  const onPrev = () => { 
+    if (currentPage === 1) return;
+    setCurrentPage(currentPage - 1);
+  }
+
   useEffect(() => {
     (function () {
       axios
         .get(
-          "https://api.themoviedb.org/3/trending/movie/day?api_key=d0f309eeda258c4300211f9acdc39321"
+          `https://api.themoviedb.org/3/trending/movie/day?api_key=d0f309eeda258c4300211f9acdc39321&page=${currentPage}`
         )
         .then((res) => {
           setMovies(res.data.results);
+          console.log(res);
         });
     })();
-  }, []);
+  }, [currentPage]);
   console.log(movies);
 
   return (
@@ -24,7 +36,7 @@ function Movies() {
         {movies.map((movie, index) => {
           return (
             <div
-              key={index}
+              key={movie.id}
               className="w-[150px] h-[40vh] bg-center bg-cover rounded-xl mb-10 hover: scale-100 hover:scale-110 transition duration-500  ease-in-out"
               style={{
                 backgroundImage:
@@ -39,6 +51,7 @@ function Movies() {
           );
         })}
       </div>
+      <Pagination onNext = {onNext} onPrev = {onPrev} currentPage = {currentPage}/>
     </div>
   );
 }
