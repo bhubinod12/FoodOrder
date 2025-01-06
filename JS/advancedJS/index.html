@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <script src="../advancedJS/deep_copy_shallow_copy/4_Array.js"></script>
+
+    <script>
+
+        // callback queue:
+        setTimeout (function(){
+            console.log("First");
+        },0);
+
+        // microtask queue:
+        queueMicrotask(function(){
+            console.log("Second");
+        },1000);
+        // requestAnimationFrame queue is getting called before rendering of the page
+        requestAnimationFrame(function(){
+            console.log("Third");
+        });
+
+    </script>
+</body>
+</html>
