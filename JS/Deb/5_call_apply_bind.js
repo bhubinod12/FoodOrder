@@ -111,6 +111,36 @@
 // bindMethod();
 
 
+// let ansArr = [];
+// function sumofnum(num) {
+//     for (i=0; i<num.length; i++) {
+//         for(j=i+1; j<num.length; j++) {
+//             if (num[i]+num[j] === 0) {
+//                 ansArr.push([num[i], num[j]]);
+//             }
+//         }
+//     }
+//     return ansArr;
+// }
+// let num = [1,2,3,-1,-2,-3];
+// console.log(sumofnum(num));
+
+// let ansArr = [];
+// function sumofnum(num) {
+//     for (i=0; i<num.length; i++) {
+//         for(j=i+1; j<num.length; j++) {
+//             if (num[i]+num[j] === 0) {
+//                 ansArr.push([num[i],num[j]]);
+//             }
+//         }
+//     }
+//     return ansArr;
+// }
+// let num = [1,2,3,-1,-2,-3];
+// console.log(sumofnum(num));
+
+
+
 
 
 
