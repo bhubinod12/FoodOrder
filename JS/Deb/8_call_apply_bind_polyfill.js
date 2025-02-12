@@ -64,18 +64,17 @@
 // }
 
 // Function.prototype.myCall = function(requredObj, ...args) {
-//     console.log(args);
 //     let requireFn = this;
 //     let obj = requredObj; // Object on which we want to call the function
 //     obj.requireFn = requireFn; // function which we want to call
 //     obj.requireFn(...args);
 // }
 
-// // cap.petersTeam.myCall();
+// cap.petersTeam.myCall();
 
 // // Test.myCall();
 // // let fun = cap.petersTeam;
-// // cap.petersTeam.myCall(ironMan);
+// cap.petersTeam.myCall(ironMan);
 // cap.petersTeam.myCall(ironMan, 'Binod', 'Deb');
 
 /**
@@ -83,7 +82,6 @@
  */
 
 // Function.prototype.myApply = function(requredObj, args) {
-//     console.log(args);
 //     let requireFn = this;
 //     let obj = requredObj; // Object on which we want to call the function
 //     obj.requireFn = requireFn; // function which we want to call
@@ -94,12 +92,58 @@
 
 // // Test.myCall();
 // // let fun = cap.petersTeam;
-// // cap.petersTeam.myCall(ironMan);
+// cap.petersTeam.myCall(ironMan);
 // cap.petersTeam.myApply(ironMan, ['Binod', 'Deb']);
 
+
 /**
- * 
+ * bind method polyfill:
  */
+
+let cap = {
+    name: "Deb",
+    team: "Cap",
+    petersTeam: function (mem1, mem2) {
+        console.log(`Hey ${this.name} I am your neighborhood's  
+        spiderman and i belong to ${this.team}'s team with members  ${mem1} ${mem2}`);
+    }
+}
+
+// let ironMan = {
+//     name: "Tony",
+//     team: "Iron Man",
+// }
+// let bindFn = cap.petersTeam.bind(ironMan);
+// let membersArray=["thor", "loki"];
+// bindFn('Binod', 'Deb');
+// const bindFn = cap.petersTeam.bind(ironMan);
+
+// function Test() {
+//     console.log('This is test function');
+// }
+
+let ironMan = {
+    name: "Tony",
+    team: "Iron Man",
+}
+function petersTeam (mem1, mem2) {
+    console.log(`Hey ${this.name} I am your neighborhood's  
+    spiderman and i belong to ${this.team}'s team with members  ${mem1} ${mem2}`);
+}
+
+Function.prototype.myBind = function (requredObj) {
+    let requireFn = this;
+    return function (...args) {
+        requireFn.call(requredObj, ...args);
+    }
+}
+let testBind = petersTeam.myBind(ironMan);
+
+testBind('Binod', 'Deb');
+
+// let boundFn = cap.petersTeam.myBind(ironMan);
+// console.log(boundFn);
+// boundFn('Binod', 'Kumar');
 
 
 
